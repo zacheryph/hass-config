@@ -1,0 +1,16 @@
+# System Configuration
+#
+# this config is for bootstrapping the system
+homeassistant:
+  name: Home
+  latitude: !env_var HASS_HOME_LATITUDE
+  longitude: !env_var HASS_HOME_LONGITUDE
+  elevation: !env_var HASS_HOME_ELEVATION
+  unit_system: imperial
+  time_zone: America/Chicago
+
+  external_url: https://home-assistant.zro.io
+  internal_url: http://home-assistant.home-assistant.svc.cluster.local:8123
+
+  packages: !include_dir_named integrations
+  allowlist_external_dirs: [ / ]
