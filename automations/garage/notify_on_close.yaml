@@ -1,0 +1,12 @@
+---
+id: garage_notify_on_close
+alias: Garage - Notify on Close
+trigger:
+- entity_id: cover.garage
+  platform: state
+  to: closed
+action:
+- service: notify.notify
+  data:
+    message: Garage Door Closed
+    title: Garage

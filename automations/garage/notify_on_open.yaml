@@ -1,0 +1,12 @@
+---
+id: garage_notify_on_open
+alias: Garage - Notify on Open
+trigger:
+- entity_id: cover.garage
+  platform: state
+  to: open
+action:
+- service: notify.notify
+  data:
+    message: Garage Door Opened
+    title: Garage
