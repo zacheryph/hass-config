@@ -1,0 +1,25 @@
+id: garage_auto_close_when_house_empty
+alias: Auto Close Garage (Empty House)
+trigger:
+- platform: state
+  entity_id: cover.garage
+  to: open
+  for: 00:10:00
+- platform: state
+  entity_id: binary_sensor.anyone_home
+  to: 'off'
+  for: 00:05:00
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.anyone_home
+    state: 'off'
+action:
+- service: cover.close_cover
+  entity_id: cover.garage
+  data: {}
+- service: notify.notify
+  data:
+    title: Garage Closed
+    message: Garage remained open for ten minutes.

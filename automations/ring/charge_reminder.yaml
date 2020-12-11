@@ -1,0 +1,15 @@
+id: ring_charge_reminder
+alias: Charge Ring Reminder
+mode: single
+trigger:
+- platform: time
+  at: 09:00:00
+condition:
+- condition: numeric_state
+  entity_id: sensor.ring_doorbell_battery
+  below: '20'
+action:
+- service: notify.mobile_app_stay_in_context
+  data:
+    title: Ring Doorbell
+    message: Battery Low. Recharge Now!

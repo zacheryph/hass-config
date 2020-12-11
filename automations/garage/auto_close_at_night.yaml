@@ -1,0 +1,21 @@
+id: garage_auto_close_at_night
+alias: Auto Close Garage (Night)
+trigger:
+- platform: state
+  entity_id: cover.garage
+  to: open
+  for: 00:10:00
+condition:
+- condition: and
+  conditions:
+  - condition: time
+    after: '22:00:00'
+    before: '07:00:00'
+action:
+- service: cover.close_cover
+  entity_id: cover.garage
+  data: {}
+- service: notify.notify
+  data:
+    title: Garage Closed
+    message: Garage remained open for ten minutes.
