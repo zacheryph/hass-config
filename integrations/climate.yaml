@@ -1,0 +1,4 @@
+climate:
+- platform: !env_var HASS_CLIMATE_PLATFORM
+  username: !env_var HASS_CLIMATE_USERNAME
+  password: !env_var HASS_CLIMATE_PASSWORD
