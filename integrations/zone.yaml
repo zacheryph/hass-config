@@ -4,5 +4,5 @@ zone:
 - name: home
   latitude: !env_var HASS_HOME_LATITUDE
   longitude: !env_var HASS_HOME_LONGITUDE
-  radius: 20
+  radius: 30
   icon: mdi:home
