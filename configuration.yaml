@@ -1,6 +1,8 @@
 # System Configuration
 #
 # this config is for bootstrapping the system
+default_config:
+
 homeassistant:
   name: Home
   latitude: !env_var HASS_HOME_LATITUDE
