@@ -1,0 +1,14 @@
+alias: Refresh Blink Images
+icon: mdi:camera
+mode: single
+sequence:
+- service: blink.trigger_camera
+  entity_id: camera.blink_garage
+- delay: 00:00:10
+- service: blink.trigger_camera
+  entity_id: camera.blink_shed
+- delay: 00:00:10
+- service: blink.trigger_camera
+  entity_id: camera.blink_backyard
+- delay: 00:00:10
+- service: blink.blink_update
