@@ -1,0 +1,18 @@
+id: water_alert_drain
+alias: Water Alert (Basement Drain)
+mode: single
+trigger:
+- platform: state
+  entity_id: sensor.water_sensor_alarm_water
+  to: '2'
+action:
+- service: notify.notify
+  data:
+    data:
+      title: Water Alert!
+      message: Water Detected at Basement Drain
+      push:
+        sound:
+          critical: 1
+          name: default
+          volume: 1
