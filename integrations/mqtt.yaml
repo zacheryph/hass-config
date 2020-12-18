@@ -1,0 +1,6 @@
+---
+# https://www.home-assistant.io/docs/mqtt/broker#run-your-own
+mqtt:
+  broker: vernemq
+  username: !env_var HASS_MQTT_USERNAME
+  password: !env_var HASS_MQTT_PASSWORD
