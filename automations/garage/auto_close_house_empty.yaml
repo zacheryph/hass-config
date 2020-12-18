@@ -1,5 +1,5 @@
 id: garage_auto_close_when_house_empty
-alias: Auto Close Garage (Empty House)
+alias: Garage - Auto Close (Empty House)
 trigger:
 - platform: state
   entity_id: cover.garage

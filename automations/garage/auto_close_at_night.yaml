@@ -1,5 +1,5 @@
 id: garage_auto_close_at_night
-alias: Auto Close Garage (Night)
+alias: Garage - Auto Close (Night)
 trigger:
 - platform: state
   entity_id: cover.garage
