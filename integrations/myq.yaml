@@ -1,0 +1,6 @@
+---
+# https://www.home-assistant.io/integrations/myq/
+cover:
+- platform: myq
+  username: !env_var HASS_MYQ_USERNAME
+  password: !env_var HASS_MYQ_PASSWORD
