@@ -4,6 +4,9 @@ alias: Garage - Notify on Close
 trigger:
 - entity_id: cover.garage
   platform: state
+  # myq likes to say "unavailable" for one second
+  # and keeps tripping this automation to send alerts
+  from: open
   to: closed
 action:
 - service: notify.notify
