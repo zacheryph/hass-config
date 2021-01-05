@@ -1,0 +1,15 @@
+---
+id: myq_goes_rogue
+alias: Garage - MyQ goes Unavailable
+trigger:
+- entity_id: cover.garage
+  platform: state
+  # myq likes to say "unavailable" for one second
+  # and keeps tripping this automation to send alerts
+  to: unavailable
+  for: 00:01:00
+action:
+- service: notify.zac
+  data:
+    title: Garage Offline
+    message: MyQ has gone offline
