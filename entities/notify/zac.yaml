@@ -1,0 +1,6 @@
+---
+name: zac
+platform: group
+services:
+- service: mobile_app_sixteen
+- service: mobile_app_stay_in_context
