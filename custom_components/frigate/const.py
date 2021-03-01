@@ -11,7 +11,7 @@ ICON = "mdi:speedometer"
 PERSON_ICON = "mdi:shield-account"
 CAR_ICON = "mdi:shield-car"
 DOG_ICON = "mdi:dog-side"
-CAT_ICON = "mdi:cat-side"
+CAT_ICON = "mdi:cat"
 OTHER_ICON = "mdi:shield-alert"
 
 # Platforms
@@ -19,7 +19,7 @@ BINARY_SENSOR = "binary_sensor"
 SENSOR = "sensor"
 SWITCH = "switch"
 CAMERA = "camera"
-PLATFORMS = [SENSOR, CAMERA]
+PLATFORMS = [SENSOR, CAMERA, SWITCH, BINARY_SENSOR]
 
 # Unit of measurement
 FPS = "fps"
@@ -41,3 +41,7 @@ If you have any issues with this you need to open an issue here:
 {ISSUE_URL}
 -------------------------------------------------------------------
 """
+
+# States
+STATE_DETECTED = "active"
+STATE_IDLE = "idle"

@@ -15,7 +15,7 @@ from homeassistant.helpers.aiohttp_client import (
 )
 
 from .const import (
-    DOMAIN, NAME, VERSION
+    DOMAIN, NAME, VERSION, STATE_DETECTED, STATE_IDLE
 )
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
@@ -48,7 +48,7 @@ class FrigateCamera(Camera):
         self._name = name
         _LOGGER.debug(f"Adding camera {name}")
         self._config = config
-        self._latest_url = urllib.parse.urljoin(self._host, f"/{self._name}/latest.jpg?h=277")
+        self._latest_url = urllib.parse.urljoin(self._host, f"/api/{self._name}/latest.jpg?h=277")
         parsed_host = urllib.parse.urlparse(self._host).hostname
         self._stream_source = f"rtmp://{parsed_host}/live/{self._name}"
         self._stream_enabled = self._config["rtmp"]["enabled"]
@@ -113,7 +113,7 @@ class FrigateCamera(Camera):
 
 
 class FrigateMqttSnapshots(Camera):
-    """Frigate Motion Sensor class."""
+    """Frigate best camera class."""
 
     def __init__(self, hass, entry, frigate_config, cam_name, obj_name):
         super().__init__()
@@ -200,3 +200,10 @@ class FrigateMqttSnapshots(Camera):
     @property
     def available(self) -> bool:
         return self._available
+
+    @property
+    def state(self):
+        """Return the camera state."""
+        if self._last_image is None:
+            return STATE_IDLE
+        return STATE_DETECTED

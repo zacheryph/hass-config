@@ -25,6 +25,9 @@ async def async_setup_entry(hass, entry, async_add_devices):
         elif key == 'detectors':
             for name in value.keys():
                 devices.append(DetectorSpeedSensor(coordinator, entry, name))
+        elif key == 'service':
+            # TODO: add sensors
+            continue
         else:
             devices.extend([CameraFpsSensor(coordinator, entry, key, t) for t in CAMERA_FPS_TYPES])
 
@@ -36,6 +39,7 @@ async def async_setup_entry(hass, entry, async_add_devices):
     for cam, obj in camera_objects:
         for zone_name in frigate_config["cameras"][cam]["zones"]:
             zone_objects.append((zone_name, obj))
+    zone_objects = list(set(zone_objects))
 
     devices.extend([
         FrigateObjectCountSensor(hass, entry, frigate_config, cam_name, obj)
