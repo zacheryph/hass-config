@@ -4,7 +4,7 @@ mode: single
 trigger:
 - platform: state
   entity_id: sensor.water_sensor_alarm_water_2
-  to: '2'
+  from: 'Clear'
 action:
 - service: notify.notify
   data:
