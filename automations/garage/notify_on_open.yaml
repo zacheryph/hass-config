@@ -4,7 +4,11 @@ alias: Garage - Notify on Open
 trigger:
 - entity_id: cover.garage
   platform: state
-  to: open
+  from:
+  - closed
+  - opening
+  to:
+  - open
 action:
 - service: notify.notify
   data:
