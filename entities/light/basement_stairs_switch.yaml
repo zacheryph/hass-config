@@ -1,0 +1,5 @@
+---
+# this is just giving is a light entity for grouping
+name: basement_stairs
+platform: switch
+entity_id: switch.basement_stairs_light

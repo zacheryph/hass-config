@@ -1,0 +1,3 @@
+---
+# https://www.home-assistant.io/integrations/light.group/
+light: !include_dir_list ../entities/light

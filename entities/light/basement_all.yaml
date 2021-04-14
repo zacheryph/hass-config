@@ -1,0 +1,8 @@
+---
+name: ALL Basement Lights
+platform: group
+entities:
+- light.basement_stairs
+- light.basement_front_dimmer
+- light.basement_mid_dimmer
+- light.basement_back_dimmer
